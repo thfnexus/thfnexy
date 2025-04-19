@@ -1,0 +1,164 @@
+[
+    { "question": "Hi",
+      "answer": "Hi How are you?"},
+    {"question": "what is your return policy",
+      "answer": "Our return policy lasts 30 days from the date of purchase."
+    },
+    {
+      "question": "how can i contact support",
+      "answer": "You can contact us at support@example.com."
+    },
+    {
+      "question": "what are your working hours",
+      "answer": "We operate Monday to Friday, 9am to 6pm."
+    },
+    {
+      "question": "who invent you",
+      "answer": "My developer Are Hashir Adnan"
+    },
+    {
+      "question": "Who develop you?",
+      "answer": "My developer are Hashir Adnan"
+      
+    },
+    {
+      "question": "Who is your developer",
+      "answer": "My developer are Hashir Adnan"
+      
+    },
+    {
+      "question": "Who are you?",
+      "answer": "I am your Ai Assistant 😎."
+      
+    },
+    {
+      "question": "What is your name?",
+      "answer": "My name is THFNEXUS BOT."
+
+    },
+    {
+      "question": "Who are you and What is your name?",
+      "answer": "I am your Ai Assistant. And My name is THFNEXUS BOT."
+      
+    },
+    {
+      "question": "Is you have any website?",
+      "answer": "Yes. Visit: <a href='https://techthf.xyz' target='_blank'>techthf.xyz</a>"
+      
+    },
+  
+
+    {
+      "question": "Do you have any logo?",
+      "answer": "Yaa 😄.Here's our logo:<br><img src='logo.jpg' width='100' />"
+    },
+  
+    {
+      "question": "what does your chatbot do",
+      "answer": "🤖 Our AI chatbot assists customers 24/7, handles FAQs, and gives instant responses — even when no one is working!"
+    },
+    {
+      "question": "what is included in the essential package",
+      "answer": "📦 *Essential Package Includes:*\n✅ 15-20 Q/A\n✅ Text + Link responses\n✅ HTML & WordPress embed\n❌ No API or dynamic updates\n🕒 2-3 Days Delivery\n💬 7 Days Support."
+    },
+    {
+      "question": "what is included in the advanced package",
+      "answer": "🚀 *Advanced Package Includes:*\n✅ Unlimited Q/A\n✅ Text + Image + Video responses\n✅ Full API Integration (OpenAI)\n✅ Google Sheets update\n✅ Full branding (logo/stickers)\n🕒 8-10 Days Delivery\n💬 30 Days Support"
+    },
+    {
+      "question": "do you support wordpress",
+      "answer": "🧩 Yes! Our bots can be easily embedded in any WordPress site using a simple HTML code snippet."
+    },
+    {
+      "question": "can your bot answer in urdu",
+      "answer": " جی ہاں! ہمارا بوٹ اردو میں بھی بات کر سکتا ہے — بس اردو میں سوال لکھیں۔"
+    },
+    {
+      "question": "can i update answers myself later",
+      "answer": "🛠️ With the Advanced package, yes! You can manage answers via Google Sheets — no coding needed!"
+    },
+    {
+      "question": "how can i contact you",
+      "answer": "📞 You can reach out through WhatsApp or visit our website: <a href='https://techthf.xyz' target='_blank'>techthf.xyz</a>"
+    },
+    
+    {
+        "question": "show me a chatbot demo",
+        "answer": "<video src='demo vie.mp4' width='200' controls></video><br>🎥 Watch this live demo: <a href='demo vie.mp4' target='_blank'>Watch Demo</a>"
+    },
+      
+    {
+      "question": "can your bot send images or videos",
+      "answer": "📷 Yes! Our Advanced AI Chatbot supports image and video responses too. Here's an example:<br><img src='chatbot.jpg' width='150' />"
+    },
+    {
+      "question": "how long does it take to deliver",
+      "answer": "🚚 *Delivery Time:*\n⏳ Essential: 2-3 Days\n⏳ Advanced: 8-10 Days\n⏳ Custom bots: Depends on requirements"
+    },
+    {
+      "question": "what if i need help after delivery",
+      "answer": "🛟 We've got your back! You’ll get:\n📅 7 Days Support (Essential)\n📅 30 Days Support (Advanced)\n📩 You can always reach us if anything breaks or needs fixing."
+    },
+  
+    {
+      "question": "hi",
+      "answer": "👋 Hello! Welcome to your AI Assistant. How can I help you today?"
+    },
+    {
+      "question": "hello",
+      "answer": "😊 Hello there! I'm your smart assistant. Feel free to ask about our chatbot services."
+    },
+    {
+      "question": "how are you",
+      "answer": "🤖 I'm doing great, thank you! Ready to assist you anytime. How can I help you today?"
+    },
+    {
+      "question": "kya hal hai",
+      "answer": "🙌 Sab theek! Aap sunayein? Kis cheez mein madad chahiye?"
+    },
+    {
+      "question": "kya chal raha hai",
+      "answer": "📡 Sab kuch AI-powered smooth chal raha hai! Aap apna sawaal poochhein, main hazir hoon."
+    },
+    {
+      "question": "can you help me",
+      "answer": "✅ Absolutely! I'm here to assist you with chatbot details, packages, and services."
+    },
+    {
+      "question": "kya aap meri madad karenge",
+      "answer": "🛠️ Ji bilkul! Bas apna sawaal likhein, aur main turant jawab dene ki koshish karunga."
+    },
+    {
+      "question": "who are you",
+      "answer": "🤖 I'm your AI Assistant, built using Python & OpenAI to help you understand and get chatbot services for your business."
+    },
+    {
+      "question": " what service are you provide",
+      "answer": "🤖 We are providing A custom ChatBot for your Website or Business. We have three (3) Packages."
+    },
+    {
+      "question": " which packages are you offer",
+      "answer": "🤖 These are our Packages.1) A smart Custom Bot. 2) An Essential Custom Bot. 3) An Advanced Custom Bot"
+    },
+    {
+      "question": " what are the packages",
+      "answer": "🤖 These are our Packages.1) A smart Custom Bot. 2) An Essential Custom Bot. 3) An Advanced Custom Bot"
+    },
+    {
+      "question": " which are the packages",
+      "answer": "🤖 These are our Packages.1) A smart Custom Bot. 2) An Essential Custom Bot. 3) An Advanced Custom Bot"
+    },
+    {
+      "question": " which are that packages",
+      "answer": "🤖 These are our Packages.1) A smart Custom Bot. 2) An Essential Custom Bot. 3) An Advanced Custom Bot"
+    },
+    {
+      "question": "Who is Hashir Adnan?",
+      "answer": "Hashir Adnan is a skilled Python developer with a strong command in chatbot development. 💻<br>He builds Advanced  Web-based AI chatbots — in fact, he’s the one who created me! 😎<br><br>Here’s his picture 👇<br><img src='Hashir.jpg' alt='Hashir Adnan' style='max-width: 100%; border-radius: 8px; margin-top: 10px;'>"
+    }
+    
+  ]
+  
+  
+  
+  
