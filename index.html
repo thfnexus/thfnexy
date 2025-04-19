@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>THFNEXUS BOt Assistanat</title>
+  <style>
+    /* Chat Icon */
+#chatbot-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #4A90E2;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: white;
+}
+
+/* Chat Container */
+#chatbot-container {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 350px;
+  max-height: 500px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  z-index: 9999;
+}
+
+#chatbot-header {
+  background-color: #4A90E2;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#chat-window {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+#chat-input {
+  display: flex;
+  border-top: 1px solid #ddd;
+  padding: 8px;
+  gap: 8px;
+}
+
+#chat-input input {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+#chat-input button {
+  background-color: #4A90E2;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Message Bubbles */
+.user-msg {
+  color: #333;
+  margin: 6px 0;
+}
+
+.bot-msg {
+  color: #4A90E2;
+  margin: 6px 0;
+}
+
+
+/* ---------------------- */
+/* Responsive Adjustments */
+/* ---------------------- */
+@media screen and (max-width: 300px) {
+  #chatbot-container {
+    width: 95vw;
+    height: 85vh;
+    bottom: 80px;
+    right: 10px;
+    border-radius: 10px;
+  }
+
+  #chatbot-header {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  #chat-input input,
+  #chat-input button {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #chatbot-container {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0;
+    max-height: 100vh;
+  }
+
+  #chat-window {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  #chatbot-header {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  #chat-input {
+    padding: 8px;
+  }
+
+  #chat-input input,
+  #chat-input button {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  #chatbot-icon {
+    bottom: 15px;
+    right: 15px;
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  #chatbot-container {
+    width: 85%;
+    right: 7.5%;
+    bottom: 80px;
+    max-height: 80vh;
+    border-radius: 10px;
+  }
+
+  #chatbot-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 26px;
+  }
+}
+
+  </style>
+
+  <!-- Include Fuse.js for fuzzy search -->
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+</head>
+<body>
+
+<!-- Chat Icon -->
+<div id="chatbot-icon" onclick="toggleChat()">💬</div>
+
+<!-- Chatbox -->
+<div id="chatbot-container">
+  <div id="chatbot-header">🤖 Your AI Assistant</div>
+  <div id="chat-window"></div>
+  <div id="chat-input">
+    <input type="text" id="user-input" placeholder="Ask something..." onkeydown="checkEnter(event)">
+    <button onclick="handleSend()">Send</button>
+  </div>
+</div>
+
+<script>
+  const openaiKey = ""; // 🔑 Optional: Add your OpenAI key here
+  const chatWindow = document.getElementById("chat-window");
+
+  function toggleChat() {
+  const box = document.getElementById("chatbot-container");
+  box.style.display = box.style.display === "flex" ? "none" : "flex";
+}
+
+
+  function checkEnter(e) {
+    if (e.key === "Enter") {
+      handleSend();
+    }
+  }
+
+  function appendMessage(sender, text) {
+    const div = document.createElement("div");
+    div.className = sender === "user" ? "user-msg" : "bot-msg";
+    div.innerHTML = (sender === "user" ? "🧑 " : "🤖 ") + text;
+    chatWindow.appendChild(div);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+  }
+
+  async function handleSend() {
+    const input = document.getElementById("user-input");
+    const message = input.value.trim();
+    if (!message) return;
+
+    appendMessage("user", message);
+    input.value = "";
+
+    const response = await getAnswer(message);
+    appendMessage("bot", response);
+  }
+
+  async function getAnswer(question) {
+    try {
+      const faqRes = await fetch("faq_data.json");
+      const faqData = await faqRes.json();
+
+      // Fuzzy search setup
+      const options = {
+        keys: ["question"],
+        threshold: 0.4,
+      };
+
+      const fuse = new Fuse(faqData, options);
+      const result = fuse.search(question);
+
+      if (result.length > 0) {
+        return result[0].item.answer;
+      }
+
+      // Fallback: OpenAI API
+      if (!openaiKey) return "Mujhe is sawal ka jawab filhal nahi mil saka.";
+
+      const res = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${openaiKey}`,
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: question }],
+        }),
+      });
+
+      const data = await res.json();
+      return data.choices[0].message.content.trim();
+
+    } catch (err) {
+      console.error(err);
+      return "Sorry, kuch masla ho gaya hai.";
+    }
+  }
+</script>
+
+</body>
+</html>
